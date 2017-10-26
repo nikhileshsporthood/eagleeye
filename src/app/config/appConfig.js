@@ -9,7 +9,7 @@ export const appConfig = {
   FAKE_ASYNC_DELAY: 1000,
 
 
-  APP_NAME: 'reactDirector',
+  APP_NAME: 'EagleEye',
 
   // connection status text references
   CONNECTION_STATUS: {
@@ -19,7 +19,7 @@ export const appConfig = {
   // eaningGraph config
   earningGraph: {
     data: {
-      API: 'api/earnigGraphData'
+      API: 'eagleeye/getRevenueData/'
     }
   },
   teamMates:{

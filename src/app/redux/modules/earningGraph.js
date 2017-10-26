@@ -101,6 +101,8 @@ function requestEarningGraphData(time = moment().format()) {
   };
 }
 function receivedEarningGraphData(data, time = moment().format()) {
+  console.log('Nikhilesh - receivedEarningGraphData');
+  console.log(...data);
   return {
     type:       RECEIVED_EARNING_GRAPH_DATA,
     isFetching: false,
@@ -118,15 +120,16 @@ function errorEarningGraphData(error, time = moment().format()) {
   };
 }
 function fetchEarningGraphData() {
-  return dispatch => {
-    dispatch(requestEarningGraphData());
-    if (appConfig.DEV_MODE) {
-      // DEV ONLY
-      fetchMockEarningGraphData()
+  console.log("Nik - fetchEarningGraphData - 1");
+      getEarningGraphData()
         .then(
           data => dispatch(receivedEarningGraphData(data))
-        );
-    } else {
+        )
+        .catch(          
+          error => {console.log("Nik - Got Error");console.log(error);}
+        );  
+  return dispatch => {
+    dispatch(requestEarningGraphData());
       getEarningGraphData()
         .then(
           data => dispatch(receivedEarningGraphData(data))
@@ -134,10 +137,10 @@ function fetchEarningGraphData() {
         .catch(
           error => dispatch(errorEarningGraphData(error))
         );
-    }
   };
 }
 function shouldFetchEarningData(state) {
+  console.log('shouldFetchEarningData');
   const earningGraphStore = state.earningGraph;
   // just check wether fetching (assuming data could be refreshed and should not persist in store)
   if (earningGraphStore.isFetching) {

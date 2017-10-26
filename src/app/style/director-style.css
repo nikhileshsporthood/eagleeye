@@ -99,7 +99,7 @@ body.fixed .wrapper {
 }
 /* Content */
 .content {
-  padding: 20px 15px;
+  padding: 10px 10px;
   background: #f0f3f4;
   overflow: auto;
 }
@@ -3726,7 +3726,7 @@ ul.online-users {
 
 .sm-st {
   background:#fff;
-  padding:20px;
+  padding:10px;
   -webkit-border-radius:3px;
   -moz-border-radius:3px;
   border-radius:3px;
@@ -3735,12 +3735,12 @@ ul.online-users {
   box-shadow: 0 1px 0px rgba(0,0,0,0.05);
 }
 .sm-st-icon {
-  width:60px;
-  height:60px;
+  width:40px;
+  height:40px;
   display:inline-block;
-  line-height:60px;
+  line-height:40px;
   text-align:center;
-  font-size:30px;
+  font-size:25px;
   background:#eee;
   -webkit-border-radius:5px;
   -moz-border-radius:5px;
@@ -3936,7 +3936,7 @@ border-radius: 500px;
 white-space: nowrap;
 }
 .panel .panel-heading {
-padding: 10px 15px;
+padding: 1px 15px;
 text-transform: uppercase;
 }
 .bg-info {

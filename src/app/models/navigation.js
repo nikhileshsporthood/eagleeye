@@ -27,40 +27,10 @@ export const navigation = {
           faIconName: 'fa-eye'
         },
         {
-          name: 'StatsCard',
-          linkTo: '/Dashboard/statsCard',
-          faIconName: 'fa-check-square-o'
-        },
-        {
-          name: 'EarningGraph',
-          linkTo: '/Dashboard/earningGraph',
-          faIconName: 'fa-area-chart'
-        },
-        {
-          name: 'Notifications',
-          linkTo: '/Dashboard/notifications',
-          faIconName: 'fa-bell'
-        },
-        {
-          name: 'Work progress',
-          linkTo: '/Dashboard/workProgress',
-          faIconName: 'fa-briefcase'
-        },
-        {
-          name: 'Twitter feed',
-          linkTo: '/Dashboard/twitterFeed',
-          faIconName: 'fa-twitter'
-        },
-        {
-          name: 'Team Mates',
-          linkTo: '/Dashboard/teamMates',
-          faIconName: 'fa-user'
-        },
-        {
-          name: 'Todo list',
-          linkTo: '/Dashboard/todoList',
-          faIconName: 'fa-check'
-        }
+          name: 'General preview',
+          linkTo: '/general/breadcrumb',
+          faIconName: 'fa-eye'
+        }        
       ]
     },
     // group menu #2

@@ -4,10 +4,10 @@ import { Base64 }  from 'js-base64';
   window.location.origin polyfill
  */
 export const getLocationOrigin = () => {
-  if (!window.location.origin) {
-    window.location.origin = `${window.location.protocol}//${window.location.hostname}${window.location.port ? ':' + window.location.port : ''}`;
-  }
-  return window.location.origin;
+  // if (!window.location.origin) {
+  //   window.location.origin = `${window.location.protocol}//${window.location.hostname}${window.location.port ? ':' + window.location.port : ''}`;
+  // }
+  return "http://localhost:8000/api/v1";
 };
 
 /*

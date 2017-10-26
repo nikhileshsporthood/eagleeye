@@ -41,6 +41,7 @@ const AsideLeft = ({
     }}
   >
     <section className="sidebar">
+    {/*
       <UserPanel
         hello={helloWord}
         username={username}
@@ -54,6 +55,7 @@ const AsideLeft = ({
       <SearchForm
         onSearchSubmit={(value) => console.log('searching: ', value)}
       />
+    */}
       {
         sideMenu.map(
           ({id, group, menus}, menuIdx) => {

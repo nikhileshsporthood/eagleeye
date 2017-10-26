@@ -49,7 +49,7 @@ class EarningGraph extends PureComponent {
           ref={this.getCanvaRef}
           id="linechart"
           width="600"
-          height="330"
+          height="250"
         />
       </Panel>
     );
