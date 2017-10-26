@@ -2,6 +2,7 @@
 
 // earningGraph:
 export {fetchEarningGraphDataIfNeeded} from './earningGraph';
+export {fetchStatsWidgetDataIfNeeded} from './statsWidget';
 // sideMenu:
 export {
   openSideMenu,

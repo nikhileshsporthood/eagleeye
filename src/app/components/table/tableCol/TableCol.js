@@ -6,8 +6,7 @@ import PropTypes  from 'prop-types';
 const TableCol = ({
   children
 }) => (
-  <td>
-    {children}
+  <td dangerouslySetInnerHTML={{__html: children.toString()}}>
   </td>
 );
 

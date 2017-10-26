@@ -140,7 +140,7 @@ function fetchEarningGraphData() {
   };
 }
 function shouldFetchEarningData(state) {
-  console.log('shouldFetchEarningData');
+  console.log('Nik - shouldFetchEarningData');
   const earningGraphStore = state.earningGraph;
   // just check wether fetching (assuming data could be refreshed and should not persist in store)
   if (earningGraphStore.isFetching) {

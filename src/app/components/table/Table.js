@@ -6,7 +6,7 @@ import PropTypes  from 'prop-types';
 const Table = ({
   children
 }) => (
-  <table className="table table-hover">
+  <table className="table table-condensed">
     {children}
   </table>
 );

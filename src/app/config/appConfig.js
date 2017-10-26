@@ -27,6 +27,11 @@ export const appConfig = {
       API: 'api/teamMates'
     }
   },
+  statsWidget:{
+    data: {
+      API: 'eagleeye/getChartData'
+    }
+  },
 
   // userInfos config
   userInfos: {
