@@ -5,12 +5,14 @@ import React      from 'react';
 import PropTypes  from 'prop-types';
 import cx         from 'classnames';
 import UserPanel  from './userPanel/UserPanel';
+import LocationMenu2  from '../../locationMenu/LocationMenu2';
 import SearchForm from './searchForm/SearchForm';
 import Horloge    from '../../horloge/Horloge';
 import Menu       from './menu/Menu';
 
 
 const AsideLeft = ({
+  locationMenu,
   connectionStatus,
   userIsConnected,
   username,
@@ -41,7 +43,10 @@ const AsideLeft = ({
     }}
   >
     <section className="sidebar">
-    {/*
+    {
+
+    <LocationMenu2 data={locationMenu}/>
+    /*
       <UserPanel
         hello={helloWord}
         username={username}

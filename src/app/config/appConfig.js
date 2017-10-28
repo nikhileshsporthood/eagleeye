@@ -32,7 +32,11 @@ export const appConfig = {
       API: 'eagleeye/getChartData'
     }
   },
-
+  locationMenu:{
+    data: {
+      API: 'eagleeye/getCenters'
+    }
+  },
   // userInfos config
   userInfos: {
     data: {

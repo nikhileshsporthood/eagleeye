@@ -36,6 +36,7 @@ class App extends Component {
       picture:     PropTypes.string,
       showPicture: PropTypes.bool
     }),
+    locationMenu:  PropTypes.object,
     userIsConnected: PropTypes.bool,
     currentView:     PropTypes.string,
 
@@ -44,6 +45,7 @@ class App extends Component {
       leaveHome: PropTypes.func,
       fetchEarningGraphDataIfNeeded: PropTypes.func,
       fetchUserInfoDataIfNeeded:     PropTypes.func,
+      fetchLocationMenuDataIfNeeded:     PropTypes.func,
       openSideMenu:   PropTypes.func,
       closeSideMenu:  PropTypes.func,
       toggleSideMenu: PropTypes.func
@@ -60,10 +62,12 @@ class App extends Component {
     const {
       actions: {
         fetchUserInfoDataIfNeeded,
+        fetchLocationMenuDataIfNeeded,
         getSideMenuCollpasedStateFromLocalStorage
       }
     } = this.props;
 
+    fetchLocationMenuDataIfNeeded();
     fetchUserInfoDataIfNeeded();
     getSideMenuCollpasedStateFromLocalStorage();
   }
@@ -72,6 +76,7 @@ class App extends Component {
     const { appName, connectionStatus, helloWord } = this.state;
     const { userInfos, userIsConnected } = this.props;
     const { sideMenuIsCollapsed, currentView } = this.props;
+    const {locationMenu} = this.props;
 
     const userFullName = `${userInfos.firstname} ${userInfos.lastname.toUpperCase()}`;
     return (
@@ -89,6 +94,7 @@ class App extends Component {
         />
         <div className="wrapper row-offcanvas row-offcanvas-left">
           <AsideLeft
+            locationMenu={locationMenu.data}
             isAnimated={true}
             sideMenu={navigation.sideMenu}
             currentView={currentView}
@@ -139,7 +145,8 @@ const mapStateToProps = (state) => {
     currentView:         state.views.currentView,
     sideMenuIsCollapsed: state.sideMenu.isCollapsed,
     userInfos:           state.userInfos.data,
-    userIsConnected:     state.userInfos.isConnected
+    userIsConnected:     state.userInfos.isConnected,
+    locationMenu:        state.locationMenu
   };
 };
 

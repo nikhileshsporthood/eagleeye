@@ -19,5 +19,6 @@ export {
   getEarningGraphData,
   getTeamMatesData,
   getUserInfoData,
-  getStatsWidgetData
+  getStatsWidgetData,
+  getLocationMenuData
 }                             from './API';

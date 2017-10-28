@@ -8,11 +8,13 @@ import userInfos            from './userInfos';
 import teamMates            from './teamMates';
 import views                from './views';
 import statsWidget			from './statsWidget'
+import locationMenu			from './locationMenu'
 
 export const reducers = {
   earningGraph,
   statsWidget,
   sideMenu,
+  locationMenu,
   userInfos,
   teamMates,
   views
