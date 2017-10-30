@@ -6,30 +6,23 @@ import Notification       from './notification/Notification';
 
 const Notifications = () => (
   <NotificationPanel>
-    <Notification type={'danger'}>
-      <span>
-        <strong>
-          Oh snap!
-        </strong>
-        Change a few things up and try submitting again.
-      </span>
-    </Notification>
+
 
     <Notification type={'success'}>
       <span>
         <strong>
           Well done!
         </strong>
-        You successfully read this important alert message.
+        Sample message
       </span>
     </Notification>
 
     <Notification type={'info'}>
       <span>
         <strong>
-          Heads up!
+          Info
         </strong>
-        This alert needs your attention, but it's not super important.
+        Not so important
       </span>
     </Notification>
 
@@ -38,18 +31,18 @@ const Notifications = () => (
         <strong>
           Warning!
         </strong>
-        Best check yo self, you're not looking too good.
+        Need attention
       </span>
     </Notification>
-
+    
     <Notification type={'danger'}>
       <span>
         <strong>
-          Oh snap!
+          Danger
         </strong>
-        Change a few things up and try submitting again.
+        Something is messed up
       </span>
-    </Notification>
+    </Notification>    
 
   </NotificationPanel>
 );

@@ -76,13 +76,13 @@ export default function statsWidget(state = initialState, action) {
 /*
   action creators
  */
-export function fetchStatsWidgetDataIfNeeded() {
+export function fetchStatsWidgetDataIfNeeded(id=0) {
   return (
     dispatch, 
     getState
   ) => {
     if (shouldFetchStatsWidgetData(getState())) {
-      return dispatch(fetchStatsWidgetData());
+      return dispatch(fetchStatsWidgetData(id));
     }
   };
 }
@@ -112,9 +112,8 @@ function errorStatsWidgetData(error, time = moment().format()) {
     time
   };
 }
-function fetchStatsWidgetData() {
-  console.log("Nik - fetchStatsWidgetData - 1");
-      getStatsWidgetData()
+function fetchStatsWidgetData(id=0) {
+      getStatsWidgetData(id)
         .then(
           data => dispatch(receivedStatsWidgetData(data))
         )
@@ -123,7 +122,7 @@ function fetchStatsWidgetData() {
         );  
   return dispatch => {
     dispatch(requestStatsWidgetData());
-      getStatsWidgetData()
+      getStatsWidgetData(id)
         .then(
           data => dispatch(receivedStatsWidgetData(data))
         )

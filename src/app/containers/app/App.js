@@ -63,6 +63,9 @@ class App extends Component {
       actions: {
         fetchUserInfoDataIfNeeded,
         fetchLocationMenuDataIfNeeded,
+        fetchStatsWidgetDataIfNeeded,
+        fetchStatsCardDataIfNeeded,
+        fetchEarningGraphDataIfNeeded,
         getSideMenuCollpasedStateFromLocalStorage
       }
     } = this.props;
@@ -71,6 +74,25 @@ class App extends Component {
     fetchUserInfoDataIfNeeded();
     getSideMenuCollpasedStateFromLocalStorage();
   }
+
+  reloadData = (selectedLocation) => {
+    console.log("Nikhilesh - reloadData called : " + selectedLocation);
+    console.log(this.props);
+    const {
+      actions: {
+        fetchUserInfoDataIfNeeded,
+        fetchLocationMenuDataIfNeeded,
+        fetchStatsWidgetDataIfNeeded,
+        fetchStatsCardDataIfNeeded,        
+        fetchEarningGraphDataIfNeeded,
+        getSideMenuCollpasedStateFromLocalStorage
+      }
+    } = this.props;    
+    // fetchUserInfoDataIfNeeded();
+    fetchStatsWidgetDataIfNeeded(selectedLocation);
+    fetchEarningGraphDataIfNeeded(selectedLocation);
+    fetchStatsCardDataIfNeeded(selectedLocation);
+  };
 
   render() {
     const { appName, connectionStatus, helloWord } = this.state;
@@ -94,6 +116,7 @@ class App extends Component {
         />
         <div className="wrapper row-offcanvas row-offcanvas-left">
           <AsideLeft
+            reloadData = {this.reloadData}
             locationMenu={locationMenu.data}
             isAnimated={true}
             sideMenu={navigation.sideMenu}

@@ -19,7 +19,7 @@ export const appConfig = {
   // eaningGraph config
   earningGraph: {
     data: {
-      API: 'eagleeye/getRevenueData/'
+      API: 'eagleeye/getRevenueData'
     }
   },
   teamMates:{
@@ -29,9 +29,14 @@ export const appConfig = {
   },
   statsWidget:{
     data: {
-      API: 'eagleeye/getChartData'
+      API: 'eagleeye/getTableData'
     }
   },
+  statsCard:{
+    data: {
+      API: 'eagleeye/getStatsCard'
+    }
+  },  
   locationMenu:{
     data: {
       API: 'eagleeye/getCenters'

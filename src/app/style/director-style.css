@@ -2,10 +2,13 @@ html,
 body {
   overflow-x: hidden!important;
   /*font-family: 'Source Sans Pro', sans-serif;*/
-  font-family: 'Lato', sans-serif;
+  font-family: 'Lato', sans-serif !important;
   -webkit-font-smoothing: antialiased;
   min-height: 100%;
   background: #f1f2f7;
+}
+ul{
+  font-family: 'Lato', sans-serif !important;
 }
 a {
   color: #3c8dbc;
@@ -2967,8 +2970,12 @@ vertical-align: top;
   background: #39435C;
 }
 .skin-black .sidebar a {
-  color: #eee;
+  color: #eee !important;
 }
+.aside-left--fixed{
+ color: #eee !important; 
+}
+
 .skin-black .sidebar a:hover {
   text-decoration: none;
 }

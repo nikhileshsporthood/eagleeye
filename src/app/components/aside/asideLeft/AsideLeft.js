@@ -12,6 +12,7 @@ import Menu       from './menu/Menu';
 
 
 const AsideLeft = ({
+  reloadData,
   locationMenu,
   connectionStatus,
   userIsConnected,
@@ -45,7 +46,7 @@ const AsideLeft = ({
     <section className="sidebar">
     {
 
-    <LocationMenu2 data={locationMenu}/>
+    <LocationMenu2 data={locationMenu} reloadData={reloadData}/>
     /*
       <UserPanel
         hello={helloWord}
@@ -61,6 +62,7 @@ const AsideLeft = ({
         onSearchSubmit={(value) => console.log('searching: ', value)}
       />
     */}
+    {/*
       {
         sideMenu.map(
           ({id, group, menus}, menuIdx) => {
@@ -78,6 +80,8 @@ const AsideLeft = ({
           }
         )
       }
+    */}
+
     </section>
   </aside>
 );

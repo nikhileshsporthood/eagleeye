@@ -29,6 +29,7 @@ const Header = ({
       <Button
         toggleSideMenu={toggleSideMenu}
       />
+    {/* 
       <div className="navbar-right">
         <ul className="nav navbar-nav">
           <MessageMenu />
@@ -43,6 +44,7 @@ const Header = ({
           />
         </ul>
       </div>
+    */}
     </nav>
   </header>
 );

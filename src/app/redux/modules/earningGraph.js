@@ -83,13 +83,13 @@ export default function earningGraph(state = initialState, action) {
 /*
   action creators
  */
-export function fetchEarningGraphDataIfNeeded() {
+export function fetchEarningGraphDataIfNeeded(id) {
   return (
     dispatch, 
     getState
   ) => {
     if (shouldFetchEarningData(getState())) {
-      return dispatch(fetchEarningGraphData());
+      return dispatch(fetchEarningGraphData(id));
     }
   };
 }
@@ -119,9 +119,8 @@ function errorEarningGraphData(error, time = moment().format()) {
     time
   };
 }
-function fetchEarningGraphData() {
-  console.log("Nik - fetchEarningGraphData - 1");
-      getEarningGraphData()
+function fetchEarningGraphData(id=0) {
+      getEarningGraphData(id)
         .then(
           data => dispatch(receivedEarningGraphData(data))
         )
@@ -130,7 +129,7 @@ function fetchEarningGraphData() {
         );  
   return dispatch => {
     dispatch(requestEarningGraphData());
-      getEarningGraphData()
+      getEarningGraphData(id)
         .then(
           data => dispatch(receivedEarningGraphData(data))
         )
@@ -140,7 +139,6 @@ function fetchEarningGraphData() {
   };
 }
 function shouldFetchEarningData(state) {
-  console.log('Nik - shouldFetchEarningData');
   const earningGraphStore = state.earningGraph;
   // just check wether fetching (assuming data could be refreshed and should not persist in store)
   if (earningGraphStore.isFetching) {

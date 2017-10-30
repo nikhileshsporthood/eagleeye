@@ -39,7 +39,8 @@ class Home extends PureComponent {
       leaveHome: PropTypes.func,
       fetchEarningGraphDataIfNeeded:  PropTypes.func,
       fetchTeamMatesDataIfNeeded:     PropTypes.func,
-      fetchStatsWidgetDataIfNeeded:     PropTypes.func
+      fetchStatsWidgetDataIfNeeded:     PropTypes.func,
+      fetchStatsCardDataIfNeeded:       PropTypes.func
     })
   };
 
@@ -53,13 +54,15 @@ class Home extends PureComponent {
       actions: {
         fetchEarningGraphDataIfNeeded,
         fetchTeamMatesDataIfNeeded,
-        fetchStatsWidgetDataIfNeeded
+        fetchStatsWidgetDataIfNeeded,
+        fetchStatsCardDataIfNeeded
       }
     } = this.props;
 
     fetchEarningGraphDataIfNeeded();
     fetchTeamMatesDataIfNeeded();
     fetchStatsWidgetDataIfNeeded();
+    fetchStatsCardDataIfNeeded();
   }
 
   componentWillUnmount() {
@@ -73,7 +76,8 @@ class Home extends PureComponent {
       teamMatesIsFetching,
       earningGraphLabels,
       earningGraphDatasets,
-      statsWidget
+      statsWidget,
+      statsCard
     } = this.props;
 
     return(
@@ -83,32 +87,32 @@ class Home extends PureComponent {
           style={{marginBottom: '5px'}}>
           <div className="col-md-3">
             <StatsCard
-              statValue={'3200'}
-              statLabel={'Revenue'}
+              statValue={statsCard.data[0].value}
+              statLabel={statsCard.data[0].label}
               icon={<i className="fa fa-inr" />}
               backColor={'red'}
             />
           </div>
           <div className="col-md-3">
             <StatsCard
-              statValue={'2200'}
-              statLabel={'Gross Margin'}
+              statValue={statsCard.data[1].value}
+              statLabel={statsCard.data[1].label}
               icon={<i className="fa fa-inr" />}
               backColor={'violet'}
             />
           </div>
           <div className="col-md-3">
             <StatsCard
-              statValue={'100,320'}
-              statLabel={'Active Customers'}
+              statValue={statsCard.data[2].value}
+              statLabel={statsCard.data[2].label}
               icon={<i className="fa fa-street-view" />}
               backColor={'blue'}
             />
           </div>
           <div className="col-md-3">
             <StatsCard
-              statValue={'4567'}
-              statLabel={'Demos Scheduled'}
+              statValue={statsCard.data[3].value}
+              statLabel={statsCard.data[3].label}
               icon={<i className="fa fa-user-plus" />}
               backColor={'green'}
             />
@@ -116,21 +120,33 @@ class Home extends PureComponent {
         </div>
 
         <div className="row">
-          <div className="col-md-8">
+          <div className="col-md-7">
             <StatsWidget
               headers={statsWidget.headers}
               data={statsWidget.data}/>
           </div>        
-          <div className="col-lg-4">
-            <Notifications />
+          <div className="col-lg-5">
+            <EarningGraph
+              labels={earningGraphLabels}
+              datasets={earningGraphDatasets}/>          
           </div>
         </div>
 
         <div className="row">
+          <div className="col-md-7">
+            <StatsWidget
+              headers={statsWidget.headers}
+              data={statsWidget.data}/>
+          </div>        
+          <div className="col-lg-5">
+            <Notifications />          
+          </div>
+        </div>        
+
+        {/*
+        <div className="row">
           <div className="col-md-6">
-            <EarningGraph
-              labels={earningGraphLabels}
-              datasets={earningGraphDatasets}/>
+            <Notifications />
           </div>
           <div className="col-md-6">
             <WorkProgress />            
@@ -138,7 +154,7 @@ class Home extends PureComponent {
         </div>
 
         <div className="row">
-
+        */}
           
 
           {/*
@@ -146,7 +162,7 @@ class Home extends PureComponent {
             <TodoListDemo />
           </div>
           */}
-        </div>
+
 
       </AnimatedView>
     );

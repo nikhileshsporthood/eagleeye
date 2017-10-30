@@ -26,18 +26,21 @@ class EarningGraph extends PureComponent {
 
   componentDidMount() {
     const { labels, datasets } = this.props;
-    this.drawChart({labels, datasets});
   }
 
   componentWillReceiveProps(newProps) {
     const { labels, datasets } = this.props;
-    if ((newProps.labels.length > 0 && newProps.datasets.length > 0) &&
-        (labels.length === 0 && datasets.length === 0)) {
-      this.drawChart({
-        labels: newProps.labels,
-        datasets: newProps.datasets
-      });
-    }
+    this.drawChart({
+      labels: newProps.labels,
+      datasets: newProps.datasets
+    });    
+    // if ((newProps.labels.length > 0 && newProps.datasets.length > 0) &&
+    //     (labels.length === 0 && datasets.length === 0)) {
+    //   this.drawChart({
+    //     labels: newProps.labels,
+    //     datasets: newProps.datasets
+    //   });
+    // }
   }
 
   render() {
@@ -49,7 +52,7 @@ class EarningGraph extends PureComponent {
           ref={this.getCanvaRef}
           id="linechart"
           width="600"
-          height="250"
+          height="275"
         />
       </Panel>
     );
@@ -60,7 +63,7 @@ class EarningGraph extends PureComponent {
   drawChart(data) {
     // BAR CHART
     const options = {
-      responsive : true,
+      // responsive : true,
       maintainAspectRatio: true
     };
 
