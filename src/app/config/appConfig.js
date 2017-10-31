@@ -39,7 +39,7 @@ export const appConfig = {
   },  
   locationMenu:{
     data: {
-      API: 'eagleeye/getCenters'
+      API: 'eagleeye/getCenters/'
     }
   },
   // userInfos config

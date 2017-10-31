@@ -9,7 +9,7 @@ import {
 }                     from '../fetchTools';
 
 export const getStatsCardData = (id) => {
-  const url = `${getLocationOrigin()}/${appConfig.statsCard.data.API}?venue_id=${id}`;
+  const url = `${getLocationOrigin()}/${appConfig.statsCard.data.API}/?venue_id=${id}`;
   const options = {...defaultOptions};
 
   return fetch(url, options)

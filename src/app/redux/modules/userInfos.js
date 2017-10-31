@@ -3,9 +3,6 @@
 import moment               from 'moment';
 import { appConfig }        from '../../config';
 import {
-  fetchMockUserInfosData
-}                           from '../../services';
-import {
   getUserInfoData
 }                           from '../../services/API';
 
@@ -111,21 +108,6 @@ function errorUserInfosData(time = moment().format()) {
 }
 
 function fetchUserInfosData() {
-  return async (dispatch) => {
-    dispatch(requestUserInfosData());
-
-    if (appConfig.DEV_MODE) {
-      const data = await fetchMockUserInfosData();  
-      return dispatch(receivedUserInfosData(data));
-    } else {
-      try {
-        const data = await getUserInfoData();
-        return dispatch(receivedUserInfosData(data));  
-      } catch (error) {
-        return dispatch(errorUserInfosData(error))
-      }
-    }
-  };
 }
 function shouldFetchUserInfoData(state) {
   const userInfosStore = state.userInfos;

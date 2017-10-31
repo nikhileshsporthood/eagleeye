@@ -8,8 +8,8 @@ import {
   getLocationOrigin
 }                     from '../fetchTools';
 
-export const getStatsWidgetData = (id) => {
-  const url = `${getLocationOrigin()}/${appConfig.statsWidget.data.API}?report_id=7500&venue_id=${id}`;
+export const getStatsWidgetData = (venue_id,report_id) => {
+  const url = `${getLocationOrigin()}/${appConfig.statsWidget.data.API}/?report_id=${report_id}&venue_id=${venue_id}`;
   const options = {...defaultOptions};
 
   return fetch(url, options)

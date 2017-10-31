@@ -3,6 +3,7 @@
 // earningGraph:
 export {fetchEarningGraphDataIfNeeded} from './earningGraph';
 export {fetchStatsWidgetDataIfNeeded} from './statsWidget';
+export {fetchStatsWidget2DataIfNeeded} from './statsWidget2';
 export {fetchStatsCardDataIfNeeded} from './statsCard';
 export {fetchLocationMenuDataIfNeeded} from './locationMenu'
 // sideMenu:

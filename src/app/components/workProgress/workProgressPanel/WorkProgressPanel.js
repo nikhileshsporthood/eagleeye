@@ -8,9 +8,7 @@ const WorkProgressPanel = ({
   children
 }) => (
   <section className="panel">
-    <header className="panel-heading">
-      {title}
-    </header>
+
     <div className="panel-body table-responsive">
       {children}
     </div>

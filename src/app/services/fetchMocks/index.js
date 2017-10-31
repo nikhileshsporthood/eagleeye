@@ -23,18 +23,6 @@ export const fetchMockEarningGraphData = (
  );
 };
 
-export const fetchMockUserInfosData = async (
-  timeToWait: number = appConfig.FAKE_ASYNC_DELAY
-): Promise<any> => {
-  return new Promise(
-    resolve => {
-      setTimeout(
-       () => resolve({...userInfosMockData}),
-       timeToWait
-     );
-    }
- );
-};
 
 export const fetchMockTeamMatesData = (
   timeToWait: number = appConfig.FAKE_ASYNC_DELAY

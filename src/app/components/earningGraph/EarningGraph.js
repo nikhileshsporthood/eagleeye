@@ -47,7 +47,7 @@ class EarningGraph extends PureComponent {
     return (
       <Panel
         hasTitle={true}
-        title={'Earning Graph'}>
+        title={'Revenue Graph'}>
         <canvas
           ref={this.getCanvaRef}
           id="linechart"
@@ -63,10 +63,14 @@ class EarningGraph extends PureComponent {
   drawChart(data) {
     // BAR CHART
     const options = {
-      // responsive : true,
+      responsive : true,
       maintainAspectRatio: true
     };
+    try{
+      this.chart.destroy();
+    }catch(e){
 
+    }
     this.chart = new Chart(
       this.linechart.getContext('2d'),
       {

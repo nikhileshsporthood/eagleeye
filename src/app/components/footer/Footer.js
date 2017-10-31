@@ -4,7 +4,7 @@ import React from 'react';
 
 const Footer = () => (
   <div className="footer-main">
-    react Director Admin Template
+    EagleEye
   </div>
 );
 

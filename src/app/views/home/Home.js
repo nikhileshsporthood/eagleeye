@@ -15,6 +15,7 @@ import {
   TeamMatesDemo  
 }                         from '../../components';
 import StatsWidget from '../../components/statsWidget/StatsWidget.js';
+import StatsWidget2 from '../../components/statsWidget/StatsWidget2.js';
 
 class Home extends PureComponent {
   static propTypes = {
@@ -40,6 +41,7 @@ class Home extends PureComponent {
       fetchEarningGraphDataIfNeeded:  PropTypes.func,
       fetchTeamMatesDataIfNeeded:     PropTypes.func,
       fetchStatsWidgetDataIfNeeded:     PropTypes.func,
+      fetchStatsWidget2DataIfNeeded:     PropTypes.func,      
       fetchStatsCardDataIfNeeded:       PropTypes.func
     })
   };
@@ -55,6 +57,7 @@ class Home extends PureComponent {
         fetchEarningGraphDataIfNeeded,
         fetchTeamMatesDataIfNeeded,
         fetchStatsWidgetDataIfNeeded,
+        fetchStatsWidget2DataIfNeeded,
         fetchStatsCardDataIfNeeded
       }
     } = this.props;
@@ -62,6 +65,7 @@ class Home extends PureComponent {
     fetchEarningGraphDataIfNeeded();
     fetchTeamMatesDataIfNeeded();
     fetchStatsWidgetDataIfNeeded();
+    fetchStatsWidget2DataIfNeeded();
     fetchStatsCardDataIfNeeded();
   }
 
@@ -77,6 +81,7 @@ class Home extends PureComponent {
       earningGraphLabels,
       earningGraphDatasets,
       statsWidget,
+      statsWidget2,
       statsCard
     } = this.props;
 
@@ -135,8 +140,8 @@ class Home extends PureComponent {
         <div className="row">
           <div className="col-md-7">
             <StatsWidget
-              headers={statsWidget.headers}
-              data={statsWidget.data}/>
+              headers={statsWidget2.headers}
+              data={statsWidget2.data}/>
           </div>        
           <div className="col-lg-5">
             <Notifications />          

@@ -64,6 +64,7 @@ class App extends Component {
         fetchUserInfoDataIfNeeded,
         fetchLocationMenuDataIfNeeded,
         fetchStatsWidgetDataIfNeeded,
+        fetchStatsWidget2DataIfNeeded,        
         fetchStatsCardDataIfNeeded,
         fetchEarningGraphDataIfNeeded,
         getSideMenuCollpasedStateFromLocalStorage
@@ -71,7 +72,7 @@ class App extends Component {
     } = this.props;
 
     fetchLocationMenuDataIfNeeded();
-    fetchUserInfoDataIfNeeded();
+    // fetchUserInfoDataIfNeeded();
     getSideMenuCollpasedStateFromLocalStorage();
   }
 
@@ -83,6 +84,7 @@ class App extends Component {
         fetchUserInfoDataIfNeeded,
         fetchLocationMenuDataIfNeeded,
         fetchStatsWidgetDataIfNeeded,
+        fetchStatsWidget2DataIfNeeded,        
         fetchStatsCardDataIfNeeded,        
         fetchEarningGraphDataIfNeeded,
         getSideMenuCollpasedStateFromLocalStorage
@@ -90,6 +92,7 @@ class App extends Component {
     } = this.props;    
     // fetchUserInfoDataIfNeeded();
     fetchStatsWidgetDataIfNeeded(selectedLocation);
+    fetchStatsWidget2DataIfNeeded(selectedLocation);    
     fetchEarningGraphDataIfNeeded(selectedLocation);
     fetchStatsCardDataIfNeeded(selectedLocation);
   };

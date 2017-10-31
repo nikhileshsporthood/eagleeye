@@ -19,7 +19,7 @@ import {
 }                         from '../../components';
 
 
-class StatsWidget extends PureComponent {
+class StatsWidget2 extends PureComponent {
   static propTypes = {
     headers:   PropTypes.array,
     data: PropTypes.array
@@ -96,4 +96,4 @@ class StatsWidget extends PureComponent {
   }
 }
 
-export default StatsWidget;
+export default StatsWidget2;
