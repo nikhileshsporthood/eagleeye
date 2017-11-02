@@ -33,6 +33,7 @@ type LocationMenuState = {
   isFetching:   boolean,
   data:         LocationMenuData,
   isConnected:  boolean,
+  selectedLocation: string,
   time:         ?string
 };
 
@@ -69,6 +70,13 @@ export default function locationMenu(state = initialState, action) {
       isFetching: action.isFetching,
       time:       action.time
     };
+  case 'CHANGE_LOCATION':
+    console.log("Location Changed");
+    return {
+      ...state,
+      selectedLocation: action.selectedLocation,
+      time:       action.time
+    };
   default:
     return state;
   }
@@ -86,6 +94,20 @@ export function fetchLocationMenuDataIfNeeded() {
     if (shouldFetchLocationMenuData(getState())) {
       return dispatch(fetchLocationMenuData());
     }
+  };
+}
+export function changeLocation(selectedLocation) {
+  return (
+    dispatch, 
+    getState
+  ) => {
+    for (var tableName in appConfig.statsTable.data.tables) {
+      if (appConfig.statsTable.data.tables.hasOwnProperty(tableName)) {
+          dispatch({type: "CHANGE_LOCATION_FOR_STATS_TABLE",name: tableName, selectedLocation: selectedLocation});
+      }
+    }    
+    
+    return dispatch({type: "CHANGE_LOCATION",selectedLocation: selectedLocation});
   };
 }
 function requestLocationMenuData(time = moment().format()) {
@@ -114,14 +136,6 @@ function errorLocationMenuData(error, time = moment().format()) {
   };
 }
 function fetchLocationMenuData() {
-  console.log("Nik - fetchLocationMenuData - 1");
-      getLocationMenuData()
-        .then(
-          data => dispatch(receivedLocationMenuData(data))
-        )
-        .catch(          
-          error => {console.log("Nik - Got Error");console.log(error);}
-        );  
   return dispatch => {
     dispatch(requestLocationMenuData());
       getLocationMenuData()

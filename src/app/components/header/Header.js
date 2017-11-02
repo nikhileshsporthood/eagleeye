@@ -6,6 +6,7 @@ import UserMenu     from './userMenu/UserMenu';
 import TaskMenu     from './taskMenu/TaskMenu';
 import MessageMenu  from './messageMenu/MessageMenu';
 import Button       from './button/Button';
+import ViewLink                             from '../../components/aside/asideLeft/menu/menuLinks/viewLink/ViewLink.js';
 
 const Header = ({
   userLogin,
@@ -14,8 +15,10 @@ const Header = ({
   userPicture,
   showPicture,
   appName,
+  currentView,
   toggleSideMenu,
-  onLogout
+  onLogout,
+  sideMenu
 }) => (
   <header
     className="header fixed--header">
@@ -46,6 +49,48 @@ const Header = ({
       </div>
     */}
     </nav>
+    <div className="top-navigation-menu"><ul>
+                <ViewLink
+                  key={'1'}
+                  isActive={true}
+                  linkTo={'/'}
+                  viewName={'Dashboard'}
+                  faIconName={'fa-bar-chart'}
+                  itemCount= { 0}
+                />
+                <ViewLink
+                  key={'2'}
+                  isActive={true}
+                  linkTo={'/batchhealth'}
+                  viewName={'Fixtures'}
+                  faIconName={'fa-calendar'}
+                  itemCount= { 0}
+                />                 
+                <ViewLink
+                  key={'3'}
+                  isActive={true}
+                  linkTo={'/sessions'}
+                  viewName={'Sessions'}
+                  faIconName={'fa-futbol-o'}
+                  itemCount= { 0}  
+                />                
+                <ViewLink
+                  key={'4'}
+                  isActive={true}
+                  linkTo={'/customers'}
+                  viewName={'Customers'}
+                  faIconName={'fa-users'}
+                  itemCount= { 0}
+                />
+                <ViewLink
+                  key={'5'}
+                  isActive={true}
+                  linkTo={'/leads'}
+                  viewName={'Leads'}
+                  faIconName={'fa-address-card-o'}
+                  itemCount= { 0}
+                />                 
+              </ul></div>                 
   </header>
 );
 

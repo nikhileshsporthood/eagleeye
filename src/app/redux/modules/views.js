@@ -7,6 +7,8 @@ const LEAVE_LOGIN_VIEW  = 'LEAVE_LOGIN_VIEW';
 
 const ENTER_HOME_VIEW  = 'ENTER_HOME_VIEW';
 const LEAVE_HOME_VIEW  = 'LEAVE_HOME_VIEW';
+const ENTER_BATCH_HEALTH_VIEW  = 'ENTER_BATCH_HEALTH_VIEW';
+const LEAVE_BATCH_HEALTH_VIEW  = 'LEAVE_BATCH_HEALTH_VIEW';
 const ENTER_SIMPLE_TABLES_VIEW = 'ENTER_SIMPLE_TABLES_VIEW';
 const LEAVE_SIMPLE_TABLES_VIEW = 'LEAVE_SIMPLE_TABLES_VIEW';
 const ENTER_BASIC_ELEMENTS_VIEW = 'ENTER_BASIC_ELEMENTS_VIEW';
@@ -72,6 +74,7 @@ export default function views(state = initialState, action) {
   case ENTER_STRIPED_PROGRESS_BAR_VIEW:
   case ENTER_ALERT_VIEW:
   case ENTER_PAGINATION_VIEW:
+  case "ENTER_PAGE":
     // can't enter if you are already inside
     if (state.currentView !== action.currentView) {
       return {
@@ -103,6 +106,7 @@ export default function views(state = initialState, action) {
   case LEAVE_STRIPED_PROGRESS_BAR_VIEW:
   case LEAVE_ALERT_VIEW:
   case LEAVE_PAGINATION_VIEW:
+  case "LEAVE_PAGE":
     // can't leave if you aren't already inside
     if (state.currentView === action.currentView) {
       return {
@@ -137,6 +141,27 @@ export function leaveHome(time = moment().format()) {
     leaveTime:    time
   };
 }
+
+
+export function enterPage(page,time = moment().format()) {
+  return {
+    type:         "ENTER_PAGE",
+    currentView:  page,
+    enterTime:    time,
+    leaveTime:    null
+  };
+}
+
+export function leavePage(page,time = moment().format()) {
+  return {
+    type:         "LEAVE_PAGE",
+    currentView:  page,
+    enterTime:    null,
+    leaveTime:    time
+  };
+}
+
+
 
 export function enterSimpleTables(time = moment().format()) {
   return {

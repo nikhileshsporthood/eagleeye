@@ -5,7 +5,8 @@ export {fetchEarningGraphDataIfNeeded} from './earningGraph';
 export {fetchStatsWidgetDataIfNeeded} from './statsWidget';
 export {fetchStatsWidget2DataIfNeeded} from './statsWidget2';
 export {fetchStatsCardDataIfNeeded} from './statsCard';
-export {fetchLocationMenuDataIfNeeded} from './locationMenu'
+export {fetchStatsTableDataIfNeeded} from './statsTable';
+export {fetchLocationMenuDataIfNeeded,changeLocation} from './locationMenu'
 // sideMenu:
 export {
   openSideMenu,
@@ -19,8 +20,9 @@ export {fetchTeamMatesDataIfNeeded}    from './teamMates';
 export {fetchUserInfoDataIfNeeded}     from './userInfos';
 // views:
 export {
-  enterHome,
-  leaveHome,
+
+  enterPage,
+  leavePage,  
 
   enterSimpleTables,
   leaveSimpleTables,

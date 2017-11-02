@@ -23,7 +23,7 @@ import ScrollTop                from './components/scrollToTop/ScrollToTop';
 import Login                    from './views/login/index';
 import PageNotFound             from './views/pageNotFound';
 
-const store           = configureStore();
+export const store           = configureStore();
 const history         = createHistory();
 const syncedHistory   = syncHistoryWithStore(history, store);
 

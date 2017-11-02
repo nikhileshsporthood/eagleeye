@@ -120,13 +120,6 @@ function errorEarningGraphData(error, time = moment().format()) {
   };
 }
 function fetchEarningGraphData(id=0) {
-      getEarningGraphData(id)
-        .then(
-          data => dispatch(receivedEarningGraphData(data))
-        )
-        .catch(          
-          error => {console.log("Nik - Got Error");console.log(error);}
-        );  
   return dispatch => {
     dispatch(requestEarningGraphData());
       getEarningGraphData(id)

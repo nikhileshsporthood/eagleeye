@@ -44,43 +44,8 @@ const AsideLeft = ({
     }}
   >
     <section className="sidebar">
-    {
 
-    <LocationMenu2 data={locationMenu} reloadData={reloadData}/>
-    /*
-      <UserPanel
-        hello={helloWord}
-        username={username}
-        connectionStatus={connectionStatus}
-        online={userIsConnected}
-        userPicture={userPicture}
-        showUserPicture={showPicture}
-      />
-      <Horloge />
-
-      <SearchForm
-        onSearchSubmit={(value) => console.log('searching: ', value)}
-      />
-    */}
-    {/*
-      {
-        sideMenu.map(
-          ({id, group, menus}, menuIdx) => {
-            return (
-              <Menu
-                key={menuIdx}
-                initialCollapseState={menuIdx === 0 ? false : null}
-                headerTitle={group}
-                headerBackColor="#283744"
-                activeView={currentView}
-                views={menus}
-                id={id}
-              />
-            );
-          }
-        )
-      }
-    */}
+      <LocationMenu2 data={locationMenu} reloadData={reloadData}/>
 
     </section>
   </aside>

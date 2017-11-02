@@ -10,12 +10,14 @@ import views                from './views';
 import statsWidget			from './statsWidget'
 import statsWidget2      from './statsWidget2'
 import statsCard			from './statsCard'
+import statsTable      from './statsTable'
 import locationMenu			from './locationMenu'
 
 export const reducers = {
   earningGraph,
   statsWidget,
   statsWidget2,  
+  statsTable,  
   statsCard,
   sideMenu,
   locationMenu,

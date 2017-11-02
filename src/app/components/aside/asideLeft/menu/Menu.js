@@ -46,6 +46,7 @@ class Menu extends PureComponent {
       activeView,
       views
     } = this.props;
+    console.log("Menu.render");
     const { isCollapsed } = this.state;
 
     return (

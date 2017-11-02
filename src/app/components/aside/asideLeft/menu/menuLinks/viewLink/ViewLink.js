@@ -19,8 +19,8 @@ const ViewLink = ({
       to={linkTo}>
       <i
         className={`fa ${faIconName}`}
-        style={{marginLeft: '10px'}} />
-      <span style={{fontSize: '13px'}}>
+        style={{marginLeft: '5px',marginRight: '5px'}} />
+      <span style={{fontSize: '16px'}}>
         {viewName}
       </span>
       {

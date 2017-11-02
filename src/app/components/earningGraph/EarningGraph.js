@@ -26,6 +26,10 @@ class EarningGraph extends PureComponent {
 
   componentDidMount() {
     const { labels, datasets } = this.props;
+    this.drawChart({
+      labels: labels,
+      datasets: datasets
+    });
   }
 
   componentWillReceiveProps(newProps) {

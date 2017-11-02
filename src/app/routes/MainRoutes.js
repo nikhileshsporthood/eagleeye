@@ -6,6 +6,11 @@ import {
  Redirect
 }                                   from 'react-router-dom';
 import HomeConnected                from '../views/home';
+import BatchHealthConnected                from '../views/batchhealth';
+import CustomersConnected                from '../views/customers';
+import LeadsConnected                from '../views/leads';
+import SessionsConnected                from '../views/sessions';
+
 import AlertConnected               from '../views/alert';
 import BasicElementsConnected       from '../views/basicElements';
 import BasicProgressBarConnected    from '../views/basicProgressBar';
@@ -29,6 +34,11 @@ import WorkProgressConnected        from '../views/workProgress';
 export const MainRoutes = () => (
   <Switch>
     <Route exact path="/" component={HomeConnected} />
+    <Route exact path="/batchhealth" component={BatchHealthConnected} />
+    <Route exact path="/customers" component={CustomersConnected} />
+    <Route exact path="/leads" component={LeadsConnected} />
+    <Route exact path="/sessions" component={SessionsConnected} />
+
 
     <Route path="/Dashboard/statsCard" component={StatsCardConnected} />
     <Route path="/Dashboard/earningGraph" component={EarningGraphConnected} />
@@ -37,11 +47,8 @@ export const MainRoutes = () => (
     <Route path="/Dashboard/twitterFeed" component={TwitterFeedConnected} />
     <Route path="/Dashboard/teamMates" component={TeamMatesViewConnected} />
     <Route path="/Dashboard/todoList" component={TodoListViewConnected} />
-
     <Route exact path="/simpleTables" component={SimpleTablesConnected} />
-
     <Route exact path="/basicElements" component={BasicElementsConnected} />
-
     <Route exact path="/general" component={GeneralConnected} />
     <Route path="/general/breadcrumb" component={BreadcrumbViewConnected} />
     <Route path="/general/stat" component={StatViewConnected} />

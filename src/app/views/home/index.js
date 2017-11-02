@@ -16,7 +16,8 @@ const mapStateToProps = (state) => {
     teamMates:              state.teamMates.data,
     statsWidget:            state.statsWidget,
     statsWidget2:            state.statsWidget2,    
-    statsCard:              state.statsCard
+    statsCard:              state.statsCard,
+    statsTable:             state.statsTable
   };
 };
 
@@ -24,14 +25,15 @@ const mapDispatchToProps = (dispatch) => {
   return {
     actions : bindActionCreators(
       {
-        enterHome: actions.enterHome,
-        leaveHome: actions.leaveHome,
+        enterPage: actions.enterPage,
+        leavePage: actions.leavePage,
 
         fetchEarningGraphDataIfNeeded:  actions.fetchEarningGraphDataIfNeeded,
         fetchTeamMatesDataIfNeeded:     actions.fetchTeamMatesDataIfNeeded,
         fetchStatsWidgetDataIfNeeded:   actions.fetchStatsWidgetDataIfNeeded,
         fetchStatsWidget2DataIfNeeded:   actions.fetchStatsWidget2DataIfNeeded,
-        fetchStatsCardDataIfNeeded:   actions.fetchStatsCardDataIfNeeded
+        fetchStatsCardDataIfNeeded:   actions.fetchStatsCardDataIfNeeded,
+        fetchStatsTableDataIfNeeded:  actions.fetchStatsTableDataIfNeeded
       },
       dispatch)
   };

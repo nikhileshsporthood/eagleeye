@@ -7,6 +7,7 @@ import PropTypes          from 'prop-types';
 import {
   AnimatedView,
   StatsCard,
+  StatsTable,
   EarningGraph,
   Notifications,
   WorkProgress,
@@ -36,8 +37,8 @@ class Home extends PureComponent {
       })
     ),
     actions: PropTypes.shape({
-      enterHome: PropTypes.func,
-      leaveHome: PropTypes.func,
+      enterPage: PropTypes.func,
+      leavePage: PropTypes.func,
       fetchEarningGraphDataIfNeeded:  PropTypes.func,
       fetchTeamMatesDataIfNeeded:     PropTypes.func,
       fetchStatsWidgetDataIfNeeded:     PropTypes.func,
@@ -47,8 +48,8 @@ class Home extends PureComponent {
   };
 
   componentWillMount() {
-    const { actions: { enterHome } } = this.props;
-    enterHome();
+    const { actions: { enterPage } } = this.props;
+    enterPage('Home');
   }
 
   componentDidMount() {
@@ -58,20 +59,19 @@ class Home extends PureComponent {
         fetchTeamMatesDataIfNeeded,
         fetchStatsWidgetDataIfNeeded,
         fetchStatsWidget2DataIfNeeded,
-        fetchStatsCardDataIfNeeded
+        fetchStatsCardDataIfNeeded,
+        fetchStatsTableDataIfNeeded
       }
     } = this.props;
 
-    fetchEarningGraphDataIfNeeded();
-    fetchTeamMatesDataIfNeeded();
-    fetchStatsWidgetDataIfNeeded();
-    fetchStatsWidget2DataIfNeeded();
-    fetchStatsCardDataIfNeeded();
+    // fetchEarningGraphDataIfNeeded();
+    // fetchStatsCardDataIfNeeded();
+    // fetchStatsTableDataIfNeeded();
   }
 
   componentWillUnmount() {
-    const { actions: { leaveHome } } = this.props;
-    leaveHome();
+    const { actions: { leavePage } } = this.props;
+    leavePage('Home');
   }
 
   render() {
@@ -82,8 +82,15 @@ class Home extends PureComponent {
       earningGraphDatasets,
       statsWidget,
       statsWidget2,
-      statsCard
+      statsCard,
+      statsTable
     } = this.props;
+    
+    const { 
+      actions: {
+        fetchStatsTableDataIfNeeded
+      }
+    } = this.props;    
 
     return(
       <AnimatedView>
@@ -126,9 +133,8 @@ class Home extends PureComponent {
 
         <div className="row">
           <div className="col-md-7">
-            <StatsWidget
-              headers={statsWidget.headers}
-              data={statsWidget.data}/>
+            <StatsTable name="revenue_per_month" data={statsTable} reloadData={fetchStatsTableDataIfNeeded}/>          
+
           </div>        
           <div className="col-lg-5">
             <EarningGraph
@@ -139,16 +145,20 @@ class Home extends PureComponent {
 
         <div className="row">
           <div className="col-md-7">
-            <StatsWidget
-              headers={statsWidget2.headers}
-              data={statsWidget2.data}/>
+            <StatsTable name="customers_per_month" data={statsTable} reloadData={fetchStatsTableDataIfNeeded}/>
           </div>        
           <div className="col-lg-5">
             <Notifications />          
           </div>
-        </div>        
+        </div>
 
         {/*
+            <StatsWidget
+              headers={statsWidget.headers}
+              data={statsWidget.data}/>
+            <StatsWidget
+              headers={statsWidget2.headers}
+              data={statsWidget2.data}/>                        
         <div className="row">
           <div className="col-md-6">
             <Notifications />

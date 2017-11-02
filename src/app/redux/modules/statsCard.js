@@ -114,13 +114,6 @@ function errorStatsCardData(error, time = moment().format()) {
   };
 }
 function fetchStatsCardData(id=0) {
-      getStatsCardData(id)
-        .then(
-          data => dispatch(receivedStatsCardData(data))
-        )
-        .catch(          
-          error => {console.log("Nik - Got Error");console.log(error);}
-        );  
   return dispatch => {
     dispatch(requestStatsCardData());
       getStatsCardData(id)

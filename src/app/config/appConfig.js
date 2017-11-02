@@ -32,6 +32,18 @@ export const appConfig = {
       API: 'eagleeye/getTableData'
     }
   },
+  statsTable:{
+    data: {
+      API: 'eagleeye/getTableData',
+      tables: {
+        "revenue_per_month": "7501",
+        "customers_per_month": "7502",
+        "batch_health" : "7520",
+        "active_customers_list" : "7530",
+        "sessions_list" : "7540"
+      }
+    }
+  },  
   statsCard:{
     data: {
       API: 'eagleeye/getStatsCard'
