@@ -9,25 +9,25 @@
 import moment               from 'moment';
 import { appConfig }        from '../../config';
 import {
-  getStatsTableData
+  getStatsGraphData
 }                           from '../../services/API';
 import {
-  fetchMockstatsTableData
+  fetchMockstatsGraphData
 }                           from '../../services/fetchMocks';
 import * as ReduxTypes      from '../types';
 
 /*
   constants
  */
-const REQUEST_STATS_TABLE_DATA   = 'REQUEST_STATS_TABLE_DATA';
-const RECEIVED_STATS_TABLE_DATA  = 'RECEIVED_STATS_TABLE_DATA';
-const ERROR_STATS_TABLE_DATA     = 'ERROR_STATS_TABLE_DATA';
+const REQUEST_STATS_GRAPH_DATA   = 'REQUEST_STATS_GRAPH_DATA';
+const RECEIVED_STATS_GRAPH_DATA  = 'RECEIVED_STATS_GRAPH_DATA';
+const ERROR_STATS_GRAPH_DATA     = 'ERROR_STATS_GRAPH_DATA';
 
 
 let singleTableState = {
   isFetching: false,
-  headers:     [],
-  data:   [[]],
+  labels: [],
+  datasets: [],
   requested_venue_id: 0,
   venue_id: -1,
   time:       null
@@ -37,49 +37,48 @@ let singleTableState = {
   reducer
  */
   let initialStateCopy = {};
-  for (var tableName in appConfig.statsTable.data.tables) {
-    if (appConfig.statsTable.data.tables.hasOwnProperty(tableName)) {
+  for (var tableName in appConfig.statsGraph.data.tables) {
+    if (appConfig.statsGraph.data.tables.hasOwnProperty(tableName)) {
         initialStateCopy[tableName] = Object.assign({}, singleTableState);
     }
   } 
   const initialState = initialStateCopy;
 
-export default function statsTable(state = initialState, action) {
-  console.log(initialState);
-  console.log(appConfig.statsTable.data.tables);
+export default function statsGraph(state = initialState, action) {
   let data = initialState;
   switch (action.type) {
-  case 'CHANGE_LOCATION_FOR_STATS_TABLE':
+  case 'CHANGE_LOCATION_FOR_STATS_GRAPH':
     console.log("Nik - REQUEST_LOCATION_CHANGE");
     console.log(state);
     data[action.name].requested_venue_id = action.selectedLocation;
     return Object.assign({}, state, data);
-  case 'REFRESH_STATS_TABLE_DATA':
-    console.log("Nik - REFRESH_STATS_TABLE_DATA");
-    fetchStatsTableDataIfNeeded(action.venue_id,action.name);
+  case 'REFRESH_STATS_GRAPH_DATA':
+    console.log("Nik - REFRESH_STATS_GRAPH_DATA");
+    fetchStatsGraphDataIfNeeded(action.venue_id,action.name);
     return state;        
-  case 'REQUEST_STATS_TABLE_DATA':
-    console.log("Nik - REQUEST_STATS_TABLE_DATA data");
+  case 'REQUEST_STATS_GRAPH_DATA':
+    console.log("Nik - REQUEST_STATS_GRAPH_DATA data");
     console.log(state);
     data[action.name].isFetching = action.isFetching;
     data[action.name].time = action.time;
     return Object.assign({}, state, data);
-  case 'RECEIVED_STATS_TABLE_DATA':
-    console.log("Nik - RECEIVED_STATS_TABLE_DATA data");
+  case 'RECEIVED_STATS_GRAPH_DATA':
+    console.log("Nik - RECEIVED_STATS_GRAPH_DATA data");
     console.log(action);
     data[action.name].isFetching = action.isFetching;
     data[action.name].time = action.time;
-    data[action.name].headers = action.headers;
-    data[action.name].data = action.data;
+    data[action.name].labels = action.labels;
+    data[action.name].datasets = action.datasets;
     data[action.name].venue_id = action.venue_id;
     let newstate = Object.assign({}, state, data);
     console.log(newstate);
     return newstate;
-  case 'ERROR_STATS_TABLE_DATA':
+  case 'ERROR_STATS_GRAPH_DATA':
     data[action.name].isFetching = action.isFetching;
     data[action.name].time = action.time;
-    data[action.name].headers = [];
-    data[action.name].data = [[]];
+    data[action.name].labels = [];
+    data[action.name].datasets = [];
+
     //To avoid api loop
     //Stop at first api error.
     data[action.name].venue_id = state[action.name].requested_venue_id;    
@@ -93,56 +92,56 @@ export default function statsTable(state = initialState, action) {
 /*
   action creators
  */
-export function fetchStatsTableDataIfNeeded(id=0,name) {
+export function fetchStatsGraphDataIfNeeded(id=0,name) {
   return (
     dispatch, 
     getState
   ) => {
-    if (shouldFetchStatsTableData(getState(),name)) {
-      return dispatch(fetchStatsTableData(id,name));
+    if (shouldFetchStatsGraphData(getState(),name)) {
+      return dispatch(fetchStatsGraphData(id,name));
     }
   };
 }
-function requestStatsTableData(name,time = moment().format()) {
+function requestStatsGraphData(name,time = moment().format()) {
   return {
-    type:       REQUEST_STATS_TABLE_DATA,
+    type:       REQUEST_STATS_GRAPH_DATA,
     isFetching: true,
     time,name
   };
 }
-function receivedStatsTableData(data,name, time = moment().format()) {
+function receivedStatsGraphData(data,name, time = moment().format()) {
   return {
-    type:       RECEIVED_STATS_TABLE_DATA,
+    type:       RECEIVED_STATS_GRAPH_DATA,
     isFetching: false,
-    headers:     [...data.headers],
-    data:   [...data.data],
+    labels:   [...data.labels],
+    datasets:   [...data.datasets],
     venue_id:   data.venue_id,
     time,name
   };
 }
-function errorStatsTableData(error,name, time = moment().format()) {
+function errorStatsGraphData(error,name, time = moment().format()) {
   return {
-    type:       ERROR_STATS_TABLE_DATA,
+    type:       ERROR_STATS_GRAPH_DATA,
     isFetching: false,
     error,
     time,name
   };
 }
-function fetchStatsTableData(id=0,name) {
+function fetchStatsGraphData(id=0,name) {
   return dispatch => {
-    dispatch(requestStatsTableData(name));
-      getStatsTableData(id,name)
+    dispatch(requestStatsGraphData(name));
+      getStatsGraphData(id,name)
         .then(
-          data => dispatch(receivedStatsTableData(data,name))
+          data => dispatch(receivedStatsGraphData(data,name))
         )
         .catch(
-          error => dispatch(errorStatsTableData(error,name))
+          error => dispatch(errorStatsGraphData(error,name))
         );
   };
 }
 
-function shouldFetchStatsTableData(state,name) {
-  const userInfosStore = state.statsTable[name];
+function shouldFetchStatsGraphData(state,name) {
+  const userInfosStore = state.statsGraph[name];
   if (userInfosStore.isFetching) {
     return false;
   } else {

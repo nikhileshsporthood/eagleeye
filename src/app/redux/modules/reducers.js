@@ -11,13 +11,17 @@ import statsWidget			from './statsWidget'
 import statsWidget2      from './statsWidget2'
 import statsCard			from './statsCard'
 import statsTable      from './statsTable'
+import scoreCard      from './scoreCard'
+import statsGraph      from './statsGraph'
 import locationMenu			from './locationMenu'
 
 export const reducers = {
   earningGraph,
   statsWidget,
   statsWidget2,  
-  statsTable,  
+  statsTable,
+  scoreCard, 
+  statsGraph,
   statsCard,
   sideMenu,
   locationMenu,

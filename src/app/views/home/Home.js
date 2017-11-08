@@ -8,6 +8,8 @@ import {
   AnimatedView,
   StatsCard,
   StatsTable,
+  ScoreCard,
+  StatsGraph,
   EarningGraph,
   Notifications,
   WorkProgress,
@@ -83,53 +85,22 @@ class Home extends PureComponent {
       statsWidget,
       statsWidget2,
       statsCard,
+      statsGraph,
+      scoreCard,
       statsTable
     } = this.props;
     
     const { 
       actions: {
-        fetchStatsTableDataIfNeeded
+        fetchStatsTableDataIfNeeded,fetchScoreCardDataIfNeeded,fetchStatsGraphDataIfNeeded
       }
     } = this.props;    
 
     return(
       <AnimatedView>
-        <div
-          className="row"
-          style={{marginBottom: '5px'}}>
-          <div className="col-md-3">
-            <StatsCard
-              statValue={statsCard.data[0].value}
-              statLabel={statsCard.data[0].label}
-              icon={<i className="fa fa-inr" />}
-              backColor={'red'}
-            />
-          </div>
-          <div className="col-md-3">
-            <StatsCard
-              statValue={statsCard.data[1].value}
-              statLabel={statsCard.data[1].label}
-              icon={<i className="fa fa-inr" />}
-              backColor={'violet'}
-            />
-          </div>
-          <div className="col-md-3">
-            <StatsCard
-              statValue={statsCard.data[2].value}
-              statLabel={statsCard.data[2].label}
-              icon={<i className="fa fa-street-view" />}
-              backColor={'blue'}
-            />
-          </div>
-          <div className="col-md-3">
-            <StatsCard
-              statValue={statsCard.data[3].value}
-              statLabel={statsCard.data[3].label}
-              icon={<i className="fa fa-user-plus" />}
-              backColor={'green'}
-            />
-          </div>
-        </div>
+        <div className="row"><div className="col-md-12">
+          <ScoreCard name="dashboard_score_card" data={scoreCard} reloadData={fetchScoreCardDataIfNeeded}/>          
+        </div></div>      
 
         <div className="row">
           <div className="col-md-7">
@@ -137,9 +108,7 @@ class Home extends PureComponent {
 
           </div>        
           <div className="col-lg-5">
-            <EarningGraph
-              labels={earningGraphLabels}
-              datasets={earningGraphDatasets}/>          
+            <StatsGraph name="revenue_per_month" data={statsGraph} reloadData={fetchStatsGraphDataIfNeeded}/>          
           </div>
         </div>
 

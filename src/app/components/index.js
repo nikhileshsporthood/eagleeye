@@ -15,6 +15,8 @@ export { default as TwitterFeed }     from './twitterFeed/TwitterFeed';
 export { default as  WorkProgress }   from './workProgress/WorkProgress';
 export { default as StatsCard }       from './statsCard/StatsCard';
 export { default as StatsTable }       from './statsTable/StatsTable';
+export { default as ScoreCard }       from './scoreCard/ScoreCard';
+export { default as StatsGraph }       from './statsGraph/StatsGraph';
 export { default as Jumbotron }       from './jumbotron/Jumbotron';
 export { default as  BasicForms }     from './basicForms/BasicForms';
 export { default as Panel }           from './panel/Panel';

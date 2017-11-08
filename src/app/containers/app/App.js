@@ -44,7 +44,6 @@ class App extends Component {
       fetchEarningGraphDataIfNeeded: PropTypes.func,
       fetchUserInfoDataIfNeeded:     PropTypes.func,
       fetchLocationMenuDataIfNeeded:     PropTypes.func,
-      fetchStatsTableDataIfNeeded: PropTypes.func,
       openSideMenu:   PropTypes.func,
       closeSideMenu:  PropTypes.func,
       toggleSideMenu: PropTypes.func
@@ -73,34 +72,20 @@ class App extends Component {
     fetchLocationMenuDataIfNeeded();
     // fetchUserInfoDataIfNeeded();
     getSideMenuCollpasedStateFromLocalStorage();
-    fetchEarningGraphDataIfNeeded(0);
-    fetchStatsCardDataIfNeeded(0);    
+    // fetchEarningGraphDataIfNeeded(0);
+    // fetchStatsCardDataIfNeeded(0);    
   }
 
   reloadData = (selectedLocation) => {
-    console.log("Nikhilesh - reloadData called : " + selectedLocation);
-    console.log(this.props);
-
     const {
       actions: {
-        fetchStatsCardDataIfNeeded,   
-        fetchStatsTableDataIfNeeded,     
+        fetchStatsCardDataIfNeeded,      
         fetchEarningGraphDataIfNeeded,
         getSideMenuCollpasedStateFromLocalStorage,
         changeLocation
       }
     } = this.props; 
-    console.log(changeLocation);   
     changeLocation(selectedLocation);
-    fetchEarningGraphDataIfNeeded(selectedLocation);
-    fetchStatsCardDataIfNeeded(selectedLocation);
-
-    //Fetch data for all tables. TODO - only in current screen.
-    // for (var tableName in appConfig.statsTable.data.tables) {
-    //   if (appConfig.statsTable.data.tables.hasOwnProperty(tableName)) {
-    //       fetchStatsTableDataIfNeeded(selectedLocation,tableName);
-    //   }
-    // }    
   };
 
   render() {

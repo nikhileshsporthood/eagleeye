@@ -6,6 +6,7 @@ import {
  Redirect
 }                                   from 'react-router-dom';
 import HomeConnected                from '../views/home';
+import RevenueConnected                from '../views/revenue';
 import BatchHealthConnected                from '../views/batchhealth';
 import CustomersConnected                from '../views/customers';
 import LeadsConnected                from '../views/leads';
@@ -34,6 +35,7 @@ import WorkProgressConnected        from '../views/workProgress';
 export const MainRoutes = () => (
   <Switch>
     <Route exact path="/" component={HomeConnected} />
+    <Route exact path="/revenue" component={RevenueConnected} />
     <Route exact path="/batchhealth" component={BatchHealthConnected} />
     <Route exact path="/customers" component={CustomersConnected} />
     <Route exact path="/leads" component={LeadsConnected} />

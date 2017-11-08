@@ -47,6 +47,12 @@ class Leads extends PureComponent {
       <AnimatedView>
         <div className="row">
           <div className="col-md-12">
+            <StatsTable name="leads_count" data={statsTable} reloadData={fetchStatsTableDataIfNeeded}/>
+          </div>        
+        </div>      
+        <div className="row">
+          <div className="col-md-12">
+              <StatsTable bigTable={true} name="leads_list" data={statsTable} reloadData={fetchStatsTableDataIfNeeded}/>
           </div>        
         </div>
       </AnimatedView>

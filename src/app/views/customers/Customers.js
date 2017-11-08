@@ -47,9 +47,10 @@ class Customers extends PureComponent {
       <AnimatedView>
         <div className="row">
           <div className="col-md-12">
-            <StatsTable name="active_customers_list" data={statsTable} reloadData={fetchStatsTableDataIfNeeded}/>
+            <StatsTable bigTable={true} name="active_customers_list" data={statsTable} reloadData={fetchStatsTableDataIfNeeded}/>
           </div>        
         </div>
+
       </AnimatedView>
     );
   }

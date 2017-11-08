@@ -5,10 +5,10 @@ import React, {
 }                         from 'react';
 import PropTypes          from 'prop-types';
 import {
-  StatsTable,AnimatedView
+  StatsTable,AnimatedView,ScoreCard
 }                         from '../../components';
 
-class BatchHealth extends PureComponent {
+class Revenue extends PureComponent {
   static propTypes = {
     actions: PropTypes.shape({
     })
@@ -16,7 +16,7 @@ class BatchHealth extends PureComponent {
 
   componentWillMount() {
     const { actions: { enterPage } } = this.props;
-    enterPage('BatchHealth');
+    enterPage('Revenue');
   }
 
   componentDidMount() {
@@ -29,30 +29,37 @@ class BatchHealth extends PureComponent {
 
   componentWillUnmount() {
     const { actions: { leavePage } } = this.props;
-    leavePage('BatchHealth');
+    leavePage('Revenue');
   }
 
   render() {
     const {
-      statsTable
+      statsTable,scoreCard
     } = this.props;
     
     const { 
       actions: {
-        fetchStatsTableDataIfNeeded
+        fetchStatsTableDataIfNeeded,fetchScoreCardDataIfNeeded
       }
     } = this.props;    
-
     return(
       <AnimatedView>
         <div className="row">
           <div className="col-md-12">
-            <StatsTable bigTable={true} name="batch_health" data={statsTable} reloadData={fetchStatsTableDataIfNeeded}/>
-          </div>        
+            <ScoreCard name="revenue_score_card" data={scoreCard} reloadData={fetchScoreCardDataIfNeeded}/>          
+          </div>                  
+        </div>      
+        <div className="row">
+          <div className="col-md-6">
+            <StatsTable name="revenue_breakup_by_program" data={statsTable} reloadData={fetchStatsTableDataIfNeeded}/>
+          </div>
+          <div className="col-md-6">
+            <StatsTable name="revenue_breakup_by_package" data={statsTable} reloadData={fetchStatsTableDataIfNeeded}/>
+          </div>                  
         </div>
       </AnimatedView>
     );
   }
 }
 
-export default BatchHealth;
+export default Revenue;

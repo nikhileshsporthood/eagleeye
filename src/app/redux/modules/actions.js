@@ -6,7 +6,10 @@ export {fetchStatsWidgetDataIfNeeded} from './statsWidget';
 export {fetchStatsWidget2DataIfNeeded} from './statsWidget2';
 export {fetchStatsCardDataIfNeeded} from './statsCard';
 export {fetchStatsTableDataIfNeeded} from './statsTable';
+export {fetchStatsGraphDataIfNeeded} from './statsGraph';
+export {fetchScoreCardDataIfNeeded} from './scoreCard';
 export {fetchLocationMenuDataIfNeeded,changeLocation} from './locationMenu'
+
 // sideMenu:
 export {
   openSideMenu,

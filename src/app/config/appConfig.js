@@ -40,10 +40,31 @@ export const appConfig = {
         "customers_per_month": "7502",
         "batch_health" : "7520",
         "active_customers_list" : "7530",
-        "sessions_list" : "7540"
+        "sessions_list" : "7540",
+        "leads_list" : "7550",
+        "leads_count" : "7551",
+        "revenue_breakup_by_program": "7504",
+        "revenue_breakup_by_package": "7505"
       }
     }
-  },  
+  },
+  scoreCard:{
+    data: {
+      API: 'eagleeye/getScoreCard',
+      tables: {
+        "dashboard_score_card": "7503",
+        "revenue_score_card": "7503"
+      }
+    }
+  },
+  statsGraph:{
+    data: {
+      API: 'eagleeye/getStatsGraph',
+      tables: {
+        "revenue_per_month": "7500"
+      }
+    }
+  },       
   statsCard:{
     data: {
       API: 'eagleeye/getStatsCard'

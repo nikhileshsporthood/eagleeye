@@ -20,5 +20,6 @@ export {
   getUserInfoData,
   getStatsWidgetData,
   getStatsCardData,  
+  getScoreCardData,    
   getLocationMenuData
 }                             from './API';

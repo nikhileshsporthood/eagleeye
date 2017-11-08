@@ -17,6 +17,8 @@ const mapStateToProps = (state) => {
     statsWidget:            state.statsWidget,
     statsWidget2:            state.statsWidget2,    
     statsCard:              state.statsCard,
+    scoreCard:              state.scoreCard,
+    statsGraph:             state.statsGraph,
     statsTable:             state.statsTable
   };
 };
@@ -33,7 +35,9 @@ const mapDispatchToProps = (dispatch) => {
         fetchStatsWidgetDataIfNeeded:   actions.fetchStatsWidgetDataIfNeeded,
         fetchStatsWidget2DataIfNeeded:   actions.fetchStatsWidget2DataIfNeeded,
         fetchStatsCardDataIfNeeded:   actions.fetchStatsCardDataIfNeeded,
-        fetchStatsTableDataIfNeeded:  actions.fetchStatsTableDataIfNeeded
+        fetchStatsGraphDataIfNeeded:  actions.fetchStatsGraphDataIfNeeded,
+        fetchStatsTableDataIfNeeded:  actions.fetchStatsTableDataIfNeeded,
+        fetchScoreCardDataIfNeeded:   actions.fetchScoreCardDataIfNeeded
       },
       dispatch)
   };

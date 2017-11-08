@@ -105,6 +105,16 @@ export function changeLocation(selectedLocation) {
       if (appConfig.statsTable.data.tables.hasOwnProperty(tableName)) {
           dispatch({type: "CHANGE_LOCATION_FOR_STATS_TABLE",name: tableName, selectedLocation: selectedLocation});
       }
+    }
+    for (var tableName in appConfig.statsGraph.data.tables) {
+      if (appConfig.statsGraph.data.tables.hasOwnProperty(tableName)) {
+          dispatch({type: "CHANGE_LOCATION_FOR_STATS_GRAPH",name: tableName, selectedLocation: selectedLocation});
+      }
+    }        
+    for (var tableName in appConfig.scoreCard.data.tables) {
+      if (appConfig.scoreCard.data.tables.hasOwnProperty(tableName)) {
+          dispatch({type: "CHANGE_LOCATION_FOR_SCORE_CARD",name: tableName, selectedLocation: selectedLocation});
+      }
     }    
     
     return dispatch({type: "CHANGE_LOCATION",selectedLocation: selectedLocation});

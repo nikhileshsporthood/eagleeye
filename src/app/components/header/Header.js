@@ -32,6 +32,57 @@ const Header = ({
       <Button
         toggleSideMenu={toggleSideMenu}
       />
+    <div className="top-navigation-menu"><ul>
+                <ViewLink
+                  key={'1'}
+                  isActive={true}
+                  linkTo={'/'}
+                  viewName={'Dashboard'}
+                  faIconName={'fa-bar-chart'}
+                  itemCount= { 0}
+                />
+                <ViewLink
+                  key={'2'}
+                  isActive={true}
+                  linkTo={'/revenue'}
+                  viewName={'Revenue'}
+                  faIconName={'fa-rupee'}
+                  itemCount= { 0}
+                />                
+                <ViewLink
+                  key={'3'}
+                  isActive={true}
+                  linkTo={'/batchhealth'}
+                  viewName={'Fixtures'}
+                  faIconName={'fa-calendar'}
+                  itemCount= { 0}
+                />                 
+                <ViewLink
+                  key={'4'}
+                  isActive={true}
+                  linkTo={'/sessions'}
+                  viewName={'Sessions'}
+                  faIconName={'fa-futbol-o'}
+                  itemCount= { 0}  
+                />                
+                <ViewLink
+                  key={'5'}
+                  isActive={true}
+                  linkTo={'/customers'}
+                  viewName={'Customers'}
+                  faIconName={'fa-users'}
+                  itemCount= { 0}
+                />
+                <ViewLink
+                  key={'6'}
+                  isActive={true}
+                  linkTo={'/leads'}
+                  viewName={'Leads'}
+                  faIconName={'fa-address-card-o'}
+                  itemCount= { 0}
+                />                 
+              </ul></div> 
+
     {/* 
       <div className="navbar-right">
         <ul className="nav navbar-nav">
@@ -49,48 +100,7 @@ const Header = ({
       </div>
     */}
     </nav>
-    <div className="top-navigation-menu"><ul>
-                <ViewLink
-                  key={'1'}
-                  isActive={true}
-                  linkTo={'/'}
-                  viewName={'Dashboard'}
-                  faIconName={'fa-bar-chart'}
-                  itemCount= { 0}
-                />
-                <ViewLink
-                  key={'2'}
-                  isActive={true}
-                  linkTo={'/batchhealth'}
-                  viewName={'Fixtures'}
-                  faIconName={'fa-calendar'}
-                  itemCount= { 0}
-                />                 
-                <ViewLink
-                  key={'3'}
-                  isActive={true}
-                  linkTo={'/sessions'}
-                  viewName={'Sessions'}
-                  faIconName={'fa-futbol-o'}
-                  itemCount= { 0}  
-                />                
-                <ViewLink
-                  key={'4'}
-                  isActive={true}
-                  linkTo={'/customers'}
-                  viewName={'Customers'}
-                  faIconName={'fa-users'}
-                  itemCount= { 0}
-                />
-                <ViewLink
-                  key={'5'}
-                  isActive={true}
-                  linkTo={'/leads'}
-                  viewName={'Leads'}
-                  faIconName={'fa-address-card-o'}
-                  itemCount= { 0}
-                />                 
-              </ul></div>                 
+                
   </header>
 );
 
