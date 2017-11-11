@@ -50,13 +50,21 @@ class Revenue extends PureComponent {
           </div>                  
         </div>      
         <div className="row">
-          <div className="col-md-6">
+          <div className="col-md-4">
             <StatsTable name="revenue_breakup_by_program" data={statsTable} reloadData={fetchStatsTableDataIfNeeded}/>
           </div>
-          <div className="col-md-6">
+          <div className="col-md-4">
             <StatsTable name="revenue_breakup_by_package" data={statsTable} reloadData={fetchStatsTableDataIfNeeded}/>
-          </div>                  
+          </div>                
+          <div className="col-md-4">
+            <StatsTable name="revenue_breakup_by_package_duration" data={statsTable} reloadData={fetchStatsTableDataIfNeeded}/>
+          </div>                          
         </div>
+        <div className="row">
+          <div className="col-md-12">
+            <StatsTable name="cash_collection_report" bigTable={true} data={statsTable} reloadData={fetchStatsTableDataIfNeeded}/>          
+          </div>                  
+        </div>        
       </AnimatedView>
     );
   }

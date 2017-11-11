@@ -127,7 +127,7 @@ class App extends Component {
           <AsideRight
             isAnimated={true}
             isExpanded={sideMenuIsCollapsed}>
-            <MainRoutes />
+            <MainRoutes onEnter={this.requireAuth}/>
           </AsideRight>
         </div>
         {/* <Footer /> */}

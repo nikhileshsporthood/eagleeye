@@ -50,8 +50,9 @@ class StatsTable extends Component {
     }
   }
 
-  bigTable(data,headers){
+  bigTable(data,headers,name){
     //Convert data to react-filterable-table format
+    console.log('Big table');
     var cols = headers;
     const dataTableData = data.map(function(element,index){
        var newObj = {};
@@ -72,7 +73,7 @@ class StatsTable extends Component {
       return heading;
     });
     return <FilterableTable
-          namespace="People"
+          namespace={name}
           data={dataTableData}
           fields={headings}
           pagersVisible={false}
@@ -81,7 +82,7 @@ class StatsTable extends Component {
         />;
   }
 
-  smallTable(data,headers){
+  smallTable(data,headers,name){
     return(
         <Table>
           <TableHeader>
@@ -142,19 +143,18 @@ class StatsTable extends Component {
       loaderDiv = null;
     }    
 
-
-
-
-
     return (
       <WorkProgressPanel>
         {loaderDiv}
 
         { this.props.bigTable &&
-          this.bigTable(data,headers)
+          <div>
+            <div className="table-heading">{this.props.name}</div>
+            {this.bigTable(data,headers,this.props.name)}
+          </div>
         }
         { !this.props.bigTable &&
-          this.smallTable(data,headers)
+          this.smallTable(data,headers,this.props.name)
         }
 
       </WorkProgressPanel>

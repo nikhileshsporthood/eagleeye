@@ -34,17 +34,30 @@ class Root extends Component {
         <div>
           <Router history={syncedHistory}>
             <ScrollTop>
-              <Switch>
-                <Route exact path="/login" component={Login} />
-                <App />
-                <Route component={PageNotFound} />
-              </Switch>
+              {/* <Route component={EnsureLoggedInContainer}> */}
+                <Switch>
+                  <Route exact path="/login" component={Login} />
+                  <App onEnter={this.requireAuth}/>
+                  <Route component={PageNotFound} />
+                </Switch>
+              {/* </Route> */}
             </ScrollTop>
           </Router>
         </div>
       </Provider>
     );
   }
+
+  requireAuth(nextState, replace) {
+    console.log("Authentication required");
+    if (true) {
+      replace({
+        pathname: '/login'
+      })
+    }
+  }
+
+
 }
 
 export default Root;

@@ -8,6 +8,7 @@ export const getLocationOrigin = () => {
   //   window.location.origin = `${window.location.protocol}//${window.location.hostname}${window.location.port ? ':' + window.location.port : ''}`;
   // }
   return "https://api.sporthood.in/api/v1";
+  // return "http://localhost:8000/api/v1";
 };
 
 /*

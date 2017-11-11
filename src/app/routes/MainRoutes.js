@@ -30,11 +30,12 @@ import TeamMatesViewConnected       from '../views/teamMates';
 import TodoListViewConnected        from '../views/todoList';
 import TwitterFeedConnected         from '../views/twitterFeed';
 import WorkProgressConnected        from '../views/workProgress';
+import requireAuthentication        from '../services/auth'
 
 
 export const MainRoutes = () => (
   <Switch>
-    <Route exact path="/" component={HomeConnected} />
+    <Route exact path="/" component={HomeConnected}/>
     <Route exact path="/revenue" component={RevenueConnected} />
     <Route exact path="/batchhealth" component={BatchHealthConnected} />
     <Route exact path="/customers" component={CustomersConnected} />

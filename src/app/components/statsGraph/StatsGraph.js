@@ -88,7 +88,7 @@ class StatsGraph extends Component {
     this.chart = new Chart(
       this.linechart.getContext('2d'),
       {
-        type: 'bar',
+        type: 'line',
         data,
         options
       }

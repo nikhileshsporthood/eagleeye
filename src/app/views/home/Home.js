@@ -103,25 +103,35 @@ class Home extends PureComponent {
         </div></div>      
 
         <div className="row">
-          <div className="col-md-7">
+          <div className="col-md-6">
             <StatsTable name="revenue_per_month" data={statsTable} reloadData={fetchStatsTableDataIfNeeded}/>          
-
           </div>        
-          <div className="col-lg-5">
-            <StatsGraph name="revenue_per_month" data={statsGraph} reloadData={fetchStatsGraphDataIfNeeded}/>          
+          <div className="col-md-6">
+            <StatsTable name="customers_per_month" data={statsTable} reloadData={fetchStatsTableDataIfNeeded}/>
           </div>
+          
         </div>
 
         <div className="row">
-          <div className="col-md-7">
-            <StatsTable name="customers_per_month" data={statsTable} reloadData={fetchStatsTableDataIfNeeded}/>
-          </div>        
-          <div className="col-lg-5">
-            <Notifications />          
+          <div className="col-md-6">
+            <StatsTable name="revenue_by_venue" data={statsTable} reloadData={fetchStatsTableDataIfNeeded}/>          
           </div>
+          <div className="col-md-6">
+            <StatsTable name="customers_by_venue" data={statsTable} reloadData={fetchStatsTableDataIfNeeded}/>          
+          </div>                  
         </div>
-
+        <div className="row">
+          <div className="col-md-6">
+            <StatsGraph name="revenue_per_month" data={statsGraph} reloadData={fetchStatsGraphDataIfNeeded}/>          
+          </div>        
+          <div className="col-md-6">
+            <Notifications />          
+          </div>          
+        </div>
         {/*
+
+
+
             <StatsWidget
               headers={statsWidget.headers}
               data={statsWidget.data}/>

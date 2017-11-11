@@ -270,4 +270,13 @@ export const auth = {
   }
 };
 
+export const requireAuthentication = (nextState, replace) => {
+    console.log("Authentication required!!!");
+    if (true) {
+      replace({
+        pathname: '/login'
+      })
+    }  
+};
+
 export default auth;

@@ -44,7 +44,11 @@ export const appConfig = {
         "leads_list" : "7550",
         "leads_count" : "7551",
         "revenue_breakup_by_program": "7504",
-        "revenue_breakup_by_package": "7505"
+        "revenue_breakup_by_package": "7505",
+        "revenue_breakup_by_package_duration": "7506",
+        "revenue_by_venue":"7509",
+        "customers_by_venue":"7510",
+        "cash_collection_report": "7507"
       }
     }
   },
@@ -53,7 +57,7 @@ export const appConfig = {
       API: 'eagleeye/getScoreCard',
       tables: {
         "dashboard_score_card": "7503",
-        "revenue_score_card": "7503"
+        "revenue_score_card": "7508"
       }
     }
   },
